@@ -2,8 +2,10 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from '../components/Header';
 import AddBook from '../components/AddBook';
+import EditBook from "../components/EditBook";
 import BookList from '../components/BooksList';
 import useLocalStorage from "../hooks/useLocalStorage";
+
 
 const AppRouter = () => {
     const [books, setBooks] = useLocalStorage('books', []);
@@ -31,8 +33,11 @@ const AppRouter = () => {
                             // Conocer un poco de las rutas V6
                             // https://ui.dev/react-router-pass-props-to-components
                             element={<AddBook books={books} setBooks={setBooks} />}
-                            path="/add" 
-                            
+                            path="/add"                             
+                        />
+                        <Route
+                            element={<EditBook books={books} setBooks={setBooks} />}
+                            path="/edit/:id"
                         />
                     </Routes>
                 </div>
