@@ -18,7 +18,7 @@ const BookForm = (props) => {
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
-        const values = [bookname, author, price, quantity];
+        const values = [bookname, author, price, quantity];        
         let errorMsg = '';
 
         const allFieldsFilled = values.every((field) => {
@@ -34,7 +34,7 @@ const BookForm = (props) => {
                 price,
                 quantity,
                 date: new Date()
-            };
+            };            
             props.handleOnSubmit(book);
         } else {
             errorMsg = "Please fill out all the fields.";
